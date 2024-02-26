@@ -1,5 +1,5 @@
-#PRACTICE REACT TYPESCRIPT
-##Target
+# PRACTICE REACT TYPESCRIPT
+## Target
 - Revise React knowledge
 - Responsive UI
 - Storybook
@@ -10,7 +10,7 @@
 - Code-Splitting
 - Re-render performance
 - Optimizing Page Speed Score Performance
-##Techstack
+## Techstack
 - React 18 and Typescript
 - Vite template and deploy with Vercel
 - Tailwind Css (optional)
@@ -21,6 +21,6 @@
 - React Router 
 - Strapi
 
-##Design  
+## Design  
 [Figma]([https://github.com](https://www.figma.com/file/ZPgFdwvWDqtTRTgzkCnLIO/Core---Dashboard-Builder-(Copy)?type=design&mode=design&t=cKRIPMZ34EWABulE-0)https://www.figma.com/file/ZPgFdwvWDqtTRTgzkCnLIO/Core---Dashboard-Builder-(Copy)?type=design&mode=design&t=cKRIPMZ34EWABulE-0)
 
