@@ -6,7 +6,7 @@ import { publicRoutes } from './routes'
 function App() {
 
   return (
-    <>
+    <div className='md:container mx-auto'>
       <ReactQueryDevtools initialIsOpen={false}/>
       <Routes>
         {publicRoutes.map((route, index) => {
@@ -14,7 +14,7 @@ function App() {
           return <Route key={index} path={route.path} element={<Page />} />
         })}
       </Routes>
-    </>
+    </div>
   )
 }
 

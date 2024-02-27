@@ -18,7 +18,7 @@ interface ButtonPropsCus extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 export const Button: React.FC<ButtonPropsCus> = memo(
   ({ text, className, variant, kind, ...rest }) => {
     return (
-      <button className={`bttn ${variant} ${kind} ${className}`} {...rest}>
+      <button  className={`bttn ${variant} ${kind} ${className}`} {...rest}>
         {text}
       </button>
     );
