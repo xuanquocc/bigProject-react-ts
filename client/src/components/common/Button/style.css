@@ -1,0 +1,49 @@
+
+.bttn {
+    width: 100%;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    gap: 8px;
+    text-align: center;
+    border: none;
+    outline: none;
+  }
+  
+  .large {
+    font-size: 20px;
+    padding: 12px 20px;
+  }
+  
+  .medium {
+    font-size: 16px;
+    padding: 8px 16px;
+  }
+  
+  .small {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+  
+  .primary {
+    background-color: #2A85FF80;
+    color: #FCFCFCBF;
+    ;
+  }
+  
+  .secondary {
+    background-color: #6c757d;
+    color: #fff;
+  }
+  
+  .light {
+    background-color: #f8f9fa;
+    color: #212529;
+  }
+  
+  .error {
+    background-color: #dc3545;
+    color: #fff;
+  }
+  
