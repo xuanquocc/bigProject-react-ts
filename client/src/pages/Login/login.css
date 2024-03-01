@@ -1,3 +1,4 @@
+
 .wrapp{
     min-width: 370px;
     height: 100vh;
@@ -5,7 +6,7 @@
 
 .content{
     max-width: 370px;
-    margin: auto auto;
+    margin: auto;
 }
 
 .sidebar{

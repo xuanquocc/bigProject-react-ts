@@ -44,12 +44,13 @@ const Login = () => {
         </div>
 
         <form action="" className="form-signup flex gap-4 flex-col">
-          <Input type="email" className="w-100" placeholder="Your email" />
+          <Input  type="email" className="w-100" placeholder="Your email" />
           <Button
             className="w-100"
-            variant="large"
-            kind="primary"
-            text="Continue"
+            variant={"contained"}
+            kind={"primary"}
+            text={"Continue"}
+            disabled={true}
           />
         </form>
 
