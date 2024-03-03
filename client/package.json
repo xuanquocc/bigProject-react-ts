@@ -13,6 +13,8 @@
     "test": "jest"
   },
   "dependencies": {
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.15.11",
     "@tanstack/react-query": "^5.24.1",
     "@tanstack/react-query-devtools": "^5.24.1",
     "@types/material-ui": "^0.21.17",
