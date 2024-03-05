@@ -12,4 +12,13 @@ test('button click event', () => {
 test('button text rendering', () => {
   const { getByText } = render(<Button text="Submit" />);
   expect(getByText('Submit')).toBeInTheDocument();
+<<<<<<< HEAD
 });
+=======
+});
+
+test('button disabled', () => {
+  const { getByText } = render(<Button disabled={true} text="Submit" />);
+  expect(getByText('Submit')).toBeDisabled();
+})
+>>>>>>> feature/button-component

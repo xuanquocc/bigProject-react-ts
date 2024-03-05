@@ -17,7 +17,6 @@ const preview: Preview = {
     },
   },
 };
-
 export const decorators = [
   withThemeFromJSXProvider({
   themes: {
@@ -27,5 +26,6 @@ export const decorators = [
   Provider: ThemeProvider,
   GlobalStyles: CssBaseline,
 })];
+
 
 export default preview;
