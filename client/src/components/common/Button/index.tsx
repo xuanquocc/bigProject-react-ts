@@ -4,7 +4,6 @@ import ButtonMui from './style'
 
 interface ButtonPropsCus extends ButtonProps {
   text?: string;
-  variant?: "contained" | "outlined" | "text";
   kind?: "primary" | "error"  ;
   className?: string;
   onClick?: () => void;
@@ -17,7 +16,6 @@ export const Button: React.FC<ButtonPropsCus> = memo(
     return (
       <ButtonMui
         className={`bttn ${className} ${variant} ${kind} ${disabled ? "disabled" : ""} rounded-xl`}
-        variant={variant}
         color={kind}
         disabled={disabled}
         onClick={onClick}
@@ -31,7 +29,7 @@ export const Button: React.FC<ButtonPropsCus> = memo(
 export default Button
 
 Button.defaultProps = {
-  variant: "contained",
+  variant: "outlined",
   kind: "primary",
   className: "",
   children: "",

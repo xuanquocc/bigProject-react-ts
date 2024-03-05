@@ -17,7 +17,10 @@ const ButtonMui = styled(ButtonMaterialUI)(({ theme }) => ({
     color: theme.palette.primary.contrastText,
   },
   '&.outlined': {
-    border: 1 + 'px solid ' + theme.palette.primary.main,
+    border: '1px solid ' + theme.palette.grey[400],
+    backgroundColor: theme.palette.primary.light,
+    color: theme.palette.primary.dark,
+    fontWeight: 'bold',
   },
   '&.disabled': {
    opacity : 0.5
