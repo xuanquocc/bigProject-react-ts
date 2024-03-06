@@ -40,9 +40,9 @@ export const Card: React.FC<CardProps> = memo(
             className="static"
           />
           <DivCustom className="overlay absolute">
-            {iconHoverArr.map((icon) => (
-              <DivCustom className="action-icon">
-                <Tick key={icon.id} icon={icon.icon} />
+            {iconHoverArr.map((icon, index) => (
+              <DivCustom className="action-icon"  key={index}>
+                <Tick icon={icon.icon} />
               </DivCustom>
             ))}
           </DivCustom>
