@@ -14,9 +14,10 @@ const theme = createTheme({
       main: "#FFBC9940",
       contrastText: "#FF6A55",
     },
-
-
-  }
+    success: {
+      main: "#B5E4CA",
+    }
+  },
 });
 
 export default theme
