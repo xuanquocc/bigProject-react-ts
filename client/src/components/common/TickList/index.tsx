@@ -6,7 +6,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 interface TickProps {
     icon?: string,
-    text: string,
+    text?: string,
     clasname?: string
 }
 

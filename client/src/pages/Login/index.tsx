@@ -6,6 +6,8 @@ import { Input } from "../../components/common/Input";
 import google from "../../assets/icon/google.png";
 import apple from "../../assets/icon/Apple.png";
 import Sidebar from "../../components/modules/sidebarLogin";
+import Card from "../../components/common/Card";
+import image from "../../assets/images/bird.png"
 
 const Login = () => {
   const services = [
@@ -25,6 +27,8 @@ const Login = () => {
         <Sidebar title="Plan includes" />
       </div>
       <div className="content mobile:flex-1">
+
+        <Card image={image} title={"Fleet - Travel shopping UI design kit"} rating={4.5} price={100}/>
         <h2 className="text-start text-6xl font-black">Sign Up</h2>
 
         <div className="socialLabel text-start my-10">

@@ -4,7 +4,9 @@ import { withThemeFromJSXProvider } from '@storybook/addon-themes';
 import theme from "../src/assets/themes/colors.ts";
 import '../src/assets/themes/colors.ts'
 import '../src/components/common/Input/style.ts'
+import '../../client/src/index.css'
 import '../src/components/common/Tag/style.ts'
+import '../src/components/common/Card/index.tsx'
 
 const preview: Preview = {
   parameters: {
