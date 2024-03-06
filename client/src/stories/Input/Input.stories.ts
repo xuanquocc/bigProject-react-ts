@@ -36,6 +36,6 @@ export const Error: Story = {
     icon: "mailLogo",
     size: "small",
     placeholder: 'Email',
-    error: true
+    isError: true
   },
 };
