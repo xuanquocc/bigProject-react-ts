@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Google from '../../assets/icon/google.png';
-import Apple from '../../assets/icon/Apple.png';
 import { Tag } from '../../components/common/Tag';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
@@ -26,10 +25,3 @@ export const Goole: Story = {
     icon: Google
   },
 };
-
-export const Appleru: Story = {
-    args: {
-      text: 'Google',
-      icon: Apple
-    },
-  };
