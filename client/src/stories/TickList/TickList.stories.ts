@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import tickicon from '../../assets/icon/tickIcon.png';
-import Tick from '../../components/common/Tag';
+import Tick from '../../components/common/TickList';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -22,6 +22,9 @@ type Story = StoryObj<typeof meta>;
 export const primary: Story = {
   args: {
     text: 'Google',
-    icon: tickicon
+    icon: tickicon,
+    onClick: () => {
+      alert(1)
+    }
   },
 };

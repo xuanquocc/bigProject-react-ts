@@ -6,17 +6,18 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 interface TickProps {
     icon?: string,
-    text: string,
-    clasname?: string
+    text?: string,
+    clasname?: string,
+    onClick?: () => void
 }
 
-const Tick: React.FunctionComponent<TickProps> = ({icon, text, clasname}) => {
+const Tick: React.FunctionComponent<TickProps> = ({icon, text, clasname, onClick}) => {
   return (
     <TickList className={`wrapp-tick flex flex-row gap-4 ${clasname}`} disablePadding>
       <ListItem disablePadding >
-        <ListItemButton>
+        <ListItemButton onClick={onClick}>
           <ListItemIcon>
-            {icon && <img src={icon} alt="icon" className='mr-2' />}
+            {icon && <img src={icon} alt="icon" className='mr-2' data-testid="icon"/>}
           </ListItemIcon>
           <ListItemText primary={text} className='text-tick'/>
         </ListItemButton>
