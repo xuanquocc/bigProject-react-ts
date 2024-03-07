@@ -29,26 +29,3 @@ export const Primary: Story = {
     disabled: false,
   },
 };
-
-export const Outlined: Story = {
-  args: {
-    text: "Button",
-    onClick: () => {
-      alert(1);
-    },
-    variant: "outlined",
-    kind: "primary",
-    disabled: false,
-  },
-};
-
-export const Disabled: Story = {
-  args: {
-    text: "Button",
-    onClick: () => {
-      alert(1);
-    },
-    kind: "primary",
-    disabled: true,
-  },
-};
