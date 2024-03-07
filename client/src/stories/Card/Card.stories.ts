@@ -8,7 +8,7 @@ const meta = {
   title: "Example/Card",
   component: Card,
   tags: ["autodocs"],
-
+  argTypes: { onClick: { action: "clicked" } },
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: "centered",
@@ -23,6 +23,9 @@ export const Primary: Story = {
     image: Image1,
     title: "Fleet - Travel shopping UI design kit",
     rating: 4.5,
-    price: 120
+    price: 120,
+    onClick: () => {
+      alert(1);
+    }
   },
 };
