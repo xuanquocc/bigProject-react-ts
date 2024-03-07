@@ -22,7 +22,7 @@ const InputStyle = styled(InputBase)(({ theme }) => ({
   fontSize: "12px",
   padding: "6px 12px",
 },
-"&.error": {
+"&.isError": {
   backgroundColor: theme.palette.error.main,
   color: theme.palette.error.contrastText,
 }

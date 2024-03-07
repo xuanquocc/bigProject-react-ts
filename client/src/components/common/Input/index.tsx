@@ -12,35 +12,35 @@ interface InputPropsCus extends Omit<React.InputHTMLAttributes<HTMLInputElement>
   icon?: string;
   placeholder?: string;
   type: string;
-  error?: boolean;
+  isError ?: boolean;
 }
 
 
 
 
 export const Input: React.FC<InputPropsCus> = memo(
-  ({ label, className, size, placeholder, error, type, icon, ...rest }) => {
+  ({ label, className, size, placeholder, isError , type, icon, ...rest }) => {
     const { color, ...inputProps } = rest;
 
     return (
       <>
         {label && <label htmlFor="input">{label}</label>}
-        
+
         <div className="input-group flex flex-row rounded-xl flex-1">
           <InputStyle
-            error={error}
-            className={`iput ${className} ${size} ${error ? "error" : ""}`}
+            error={isError }
+            className={`input ${className} ${size} ${isError  ? "isError " : ""}`}
             type={type}
             placeholder={placeholder}
             {...inputProps} 
             startAdornment={
               <InputAdornment position="start">
-                {!error ? <div className="mail-icon flex justify-center items-center border-r-2 pr-2"><img src={mailLogo} alt="mail" /></div> : <div className="mail-icon flex justify-center items-center pr-2 ml-2"><img src={unionIcon} alt="mail" /></div>}
+                {!isError  ? <div className="mail-icon flex justify-center items-center border-r-2 pr-2"><img src={mailLogo} alt="mail" /></div> : <div className="mail-icon flex justify-center items-center pr-2 ml-2"><img src={unionIcon} alt="mail" /></div>}
               </InputAdornment>
             }
             endAdornment={
               <InputAdornment position="end">
-                {error ? <div className="mr-2"><img src={errorIcon} alt="icon" /> </div>: null}
+                {isError  ? <div className="mr-2"><img src={errorIcon} alt="icon" /> </div>: null}
               </InputAdornment>
             }
           />
