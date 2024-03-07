@@ -8,8 +8,13 @@ DA:1,1
 DA:3,1
 DA:14,1
 DA:16,3
+<<<<<<< Updated upstream
 DA:29,1
 DA:31,1
+=======
+DA:30,1
+DA:32,1
+>>>>>>> Stashed changes
 LF:6
 LH:6
 BRDA:15,0,0,2
@@ -170,15 +175,23 @@ BRH:0
 end_of_record
 TN:
 SF:src\components\common\TickList\index.tsx
+<<<<<<< Updated upstream
 FN:13,(anonymous_0)
 FNF:1
 FNH:1
 FNDA:5,(anonymous_0)
+=======
+FN:14,(anonymous_0)
+FNF:1
+FNH:1
+FNDA:6,(anonymous_0)
+>>>>>>> Stashed changes
 DA:2,2
 DA:3,2
 DA:4,2
 DA:5,2
 DA:6,2
+<<<<<<< Updated upstream
 DA:13,2
 DA:14,5
 DA:32,2
@@ -186,6 +199,15 @@ LF:8
 LH:8
 BRDA:19,0,0,5
 BRDA:19,0,1,4
+=======
+DA:14,2
+DA:15,6
+DA:33,2
+LF:8
+LH:8
+BRDA:20,0,0,6
+BRDA:20,0,1,5
+>>>>>>> Stashed changes
 BRF:2
 BRH:2
 end_of_record
@@ -194,10 +216,17 @@ SF:src\components\common\TickList\style.ts
 FN:6,(anonymous_0)
 FNF:1
 FNH:1
+<<<<<<< Updated upstream
 FNDA:5,(anonymous_0)
 DA:1,2
 DA:3,2
 DA:6,5
+=======
+FNDA:6,(anonymous_0)
+DA:1,2
+DA:3,2
+DA:6,6
+>>>>>>> Stashed changes
 DA:13,2
 LF:4
 LH:4

@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import tickicon from '../../assets/icon/tickIcon.png';
-import Tick from '../../components/common/Tag';
+import Tick from '../../components/common/TickList';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
   title: 'Example/Tick',
   component: Tick,
   tags: ['autodocs'],
-
+  argTypes: { onClick: { action: "clicked" } },
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: 'centered',
@@ -22,6 +22,9 @@ type Story = StoryObj<typeof meta>;
 export const primary: Story = {
   args: {
     text: 'Google',
-    icon: tickicon
+    icon: tickicon,
+    onClick: () => {
+      alert(1)
+    }
   },
 };
