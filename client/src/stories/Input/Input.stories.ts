@@ -14,10 +14,6 @@ const meta = {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: 'centered',
   },
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 } satisfies Meta<typeof Input>;
 
 export default meta;
@@ -30,19 +26,7 @@ export const Primary: Story = {
     icon: "mailLogo",
     size: "small",
     placeholder: 'Email',
-    isError: false
+    isError: false,
+    isTrue: false
   },
 };
-<<<<<<< Updated upstream
-
-export const Error: Story = {
-  args: {
-    type: 'email',
-    icon: "mailLogo",
-    size: "small",
-    placeholder: 'Email',
-    isError: true
-  },
-};
-=======
->>>>>>> Stashed changes
