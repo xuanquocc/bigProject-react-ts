@@ -1,25 +1,35 @@
 import React, { memo } from "react";
-import {InputAdornment } from "@mui/material";
-import mailLogo from "../../../assets/icon/mail.png"; 
-import errorIcon from "../../../assets/icon/error.png"
-import unionIcon from "../../../assets/icon/Union.png"
-import InputStyle from './style.ts'
+import { InputAdornment } from "@mui/material";
+import mailLogo from "../../../assets/icon/mail.png";
+import errorIcon from "../../../assets/icon/error.png";
+import unionIcon from "../../../assets/icon/Union.png";
+import accessIcon from "../../../assets/icon/success.png";
+import InputStyle from "./style.ts";
 
-interface InputPropsCus extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
+interface InputPropsCus
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "size"> {
   label?: string;
   className?: string;
   size?: "large" | "small" | "medium" | string;
   icon?: string;
   placeholder?: string;
   type: string;
-  isError ?: boolean;
+  isError?: boolean;
+  isTrue?: boolean;
 }
 
-
-
-
 export const Input: React.FC<InputPropsCus> = memo(
-  ({ label, className, size, placeholder, isError , type, icon, ...rest }) => {
+  ({
+    label,
+    className,
+    size,
+    placeholder,
+    isError,
+    isTrue,
+    type,
+    icon,
+    ...rest
+  }) => {
     const { color, ...inputProps } = rest;
 
     return (
@@ -28,26 +38,44 @@ export const Input: React.FC<InputPropsCus> = memo(
 
         <div className="input-group flex flex-row rounded-xl flex-1">
           <InputStyle
-            error={isError }
-            className={`input ${className} ${size} ${isError  ? "isError " : ""}`}
+            error={isError}
+            className={`input ${className} ${size} ${isError ? "isError " : ""}`}
             type={type}
             placeholder={placeholder}
-            {...inputProps} 
+            {...inputProps}
             startAdornment={
               <InputAdornment position="start">
-                {!isError  ? <div className="mail-icon flex justify-center items-center border-r-2 pr-2"><img src={mailLogo} alt="mail" /></div> : <div className="mail-icon flex justify-center items-center pr-2 ml-2"><img src={unionIcon} alt="mail" /></div>}
+                {!isError ? (
+                  <div className="mail-icon flex justify-center items-center border-r-2 pr-2">
+                    <img src={mailLogo} alt="mail" />
+                  </div>
+                ) : (
+                  <div className="mail-icon flex justify-center items-center pr-2 ml-2">
+                    <img src={unionIcon} alt="mail" />
+                  </div>
+                )}
               </InputAdornment>
             }
             endAdornment={
               <InputAdornment position="end">
-                {isError  ? <div className="mr-2"><img src={errorIcon} alt="icon" /> </div>: null}
+                {isError ? (
+                  <div className="mr-2">
+                    <img src={errorIcon} alt="icon" />{" "}
+                  </div>
+                ) : (
+                  isTrue && (
+                    <div className="mr-2">
+                      <img src={accessIcon} alt="icon" />{" "}
+                    </div>
+                  )
+                )}
               </InputAdornment>
             }
           />
         </div>
       </>
     );
-  },
+  }
 );
 
 Input.defaultProps = {

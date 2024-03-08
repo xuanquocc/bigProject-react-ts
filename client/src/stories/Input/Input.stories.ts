@@ -26,6 +26,7 @@ export const Primary: Story = {
     icon: "mailLogo",
     size: "small",
     placeholder: 'Email',
-    isError: false
+    isError: false,
+    isTrue: false
   },
 };
