@@ -3,6 +3,7 @@ import logo from '../../../assets/icon/Logo.png'
 import tick from '../../../assets/icon/tickIcon.png'
 import imageLogo from '../../../assets/icon/imageLogo.png'
 import Tick from '../../common/TickList';
+import SideBarCustom from "./style"
 
 interface  SidebarProps {
   title?: string;
@@ -12,7 +13,7 @@ const Sidebar: React.FunctionComponent< SidebarProps> = ({title}) => {
 
   const tickContent = ["Unlimited product uploads","Pro tips", "Free forever", "Full author options"]
   return (
-    <div className="wrap-sidebar-sigup py-6 px-10">
+    <SideBarCustom className="wrap-sidebar-sigup py-6 px-10">
       <div className="logo">
         <img src={logo} alt="logo" />
       </div>
@@ -32,7 +33,7 @@ const Sidebar: React.FunctionComponent< SidebarProps> = ({title}) => {
       </div>
 
       
-    </div>
+    </SideBarCustom>
   ) ;
 };
 
