@@ -5,6 +5,7 @@ import errorIcon from "../../../assets/icon/error.png";
 import unionIcon from "../../../assets/icon/Union.png";
 import accessIcon from "../../../assets/icon/success.png";
 import InputStyle from "./style.ts";
+import KeyIcon from "@mui/icons-material/Key";
 
 interface InputPropsCus
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "size"> {
@@ -45,14 +46,22 @@ export const Input: React.FC<InputPropsCus> = memo(
             {...inputProps}
             startAdornment={
               <InputAdornment position="start">
-                {!isError ? (
+                {type === "password" ? (
+                  <div className="mail-icon flex justify-center items-center border-r-2 pr-2">
+                    <KeyIcon />
+                  </div>
+                ) : type === "email" ? (
                   <div className="mail-icon flex justify-center items-center border-r-2 pr-2">
                     <img src={mailLogo} alt="mail" />
                   </div>
-                ) : (
+                ) : type === "text" ? (
+                  <div></div>
+                ): isError ? (
                   <div className="mail-icon flex justify-center items-center pr-2 ml-2">
                     <img src={unionIcon} alt="mail" />
                   </div>
+                ): (
+                  <div></div>
                 )}
               </InputAdornment>
             }
