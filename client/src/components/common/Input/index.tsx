@@ -8,7 +8,7 @@ import InputStyle from "./style.ts";
 import KeyIcon from "@mui/icons-material/Key";
 
 interface InputPropsCus
-  extends InputProps{
+  extends InputProps {
   label?: string;
   className?: string;
   icon?: string;
@@ -16,6 +16,7 @@ interface InputPropsCus
   type: string;
   isError?: boolean;
   isTrue?: boolean;
+  formError?: string;
 }
 
 export const Input: React.FC<InputPropsCus> = memo(
@@ -28,6 +29,7 @@ export const Input: React.FC<InputPropsCus> = memo(
     isTrue,
     type,
     icon,
+    formError,
     ...rest
   }) => {
     const { color, ...inputProps } = rest;
@@ -36,7 +38,7 @@ export const Input: React.FC<InputPropsCus> = memo(
       <>
         {label && <label htmlFor="input">{label}</label>}
 
-        <div className="input-group flex flex-row rounded-xl flex-1">
+        <div className="input-group flex flex-col rounded-xl flex-1">
           <InputStyle
             error={isError}
             className={`input ${className} ${size} ${isError ? "isError " : ""}`}
@@ -80,6 +82,7 @@ export const Input: React.FC<InputPropsCus> = memo(
               </InputAdornment>
             }
           />
+          <p className="form-error text-red-500 text-start">{formError}</p>
         </div>
       </>
     );
@@ -90,6 +93,9 @@ Input.defaultProps = {
   label: "",
   className: "",
   size: "small",
+  isTrue: false,
+  isError: false,
 };
+
 
 export default Input;

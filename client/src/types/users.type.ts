@@ -5,3 +5,10 @@ export interface User {
     avatar?: string,
   }
   
+
+  export interface FormErrors {
+    username?: string;
+    email?: string;
+    password?: string;
+  }
+  
