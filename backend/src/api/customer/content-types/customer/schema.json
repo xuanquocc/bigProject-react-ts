@@ -22,7 +22,7 @@
     },
     "name": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "avatar": {
       "type": "string"

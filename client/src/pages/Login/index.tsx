@@ -1,4 +1,5 @@
-import React from "react";
+import { useState } from "react";
+import { ChangeEvent } from "react";
 import "./login.css";
 import { Tag } from "../../components/common/Tag";
 import { Button } from "../../components/common/Button";
@@ -6,10 +7,45 @@ import { Input } from "../../components/common/Input";
 import google from "../../assets/icon/google.png";
 import apple from "../../assets/icon/Apple.png";
 import Sidebar from "../../components/modules/sidebarLogin";
-import Card from "../../components/common/Card";
-import image from "../../assets/images/bird.png"
+import { useNavigate } from "react-router-dom";
+import { User } from "../../types/users.type";
+import { registerUser } from "../../api/registerApi";
+import { useMutation } from "@tanstack/react-query";
+import { validateAuthen } from "../../utils/AuthenValidate";
 
+const initialUser: User = {
+  username: "",
+  email: "",
+  password: "",
+};
 const Login = () => {
+  const [user, setUser] = useState(initialUser);
+  const [formErrors, setFormErrors] = useState({});
+
+  const navigate = useNavigate();
+  const handleChange = ({target}: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = target;
+    console.log(value)
+    setFormErrors(validateAuthen(user));
+    setUser((currentUser: User) => ({
+      ...currentUser,
+      [name]: value,
+    }))
+  }
+  const {mutate} = useMutation({
+    mutationFn: (user: User) => {
+      return registerUser(user)
+    }
+  })
+
+  const handleSignup = async () => {
+    try {
+      mutate(user);
+      navigate("/register");
+    } catch (error) {
+      console.log(error);
+    }}
+
   const services = [
     {
       icon: google,
@@ -47,13 +83,17 @@ const Login = () => {
         </div>
 
         <form action="" className="form-signup flex gap-4 flex-col">
-          <Input  type="email" className="w-100" placeholder="Your email" />
+          <Input name="username" onChange={handleChange} value={user.username}  type="text" className="w-100" placeholder="Your Name" />
+          <Input name="email" onChange={handleChange} value={user.email} type="email" className="w-100" placeholder="Your email" />
+          <Input name="password" onChange={handleChange} value={user.password} type="password" className="w-100" placeholder="Password" />
           <Button
             className="w-100"
             variant={"contained"}
             kind={"primary"}
             text={"Continue"}
-            disabled={true}
+            disabled={false}
+            type="submit"
+            onClick={handleSignup}
           />
         </form>
 

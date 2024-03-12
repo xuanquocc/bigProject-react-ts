@@ -1,8 +1,7 @@
 export interface User {
-    name: string,
+    username: string,
     email: string,
     password: string,
-    avatar: string,
+    avatar?: string,
   }
   
-  export type Users = Pick<User, 'name' | 'email' | 'avatar' | 'password'>[]
