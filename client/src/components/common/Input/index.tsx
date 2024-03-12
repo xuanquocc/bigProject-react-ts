@@ -16,6 +16,7 @@ interface InputPropsCus
   type: string;
   isError?: boolean;
   isTrue?: boolean;
+  formError?: string;
 }
 
 export const Input: React.FC<InputPropsCus> = memo(
@@ -28,6 +29,7 @@ export const Input: React.FC<InputPropsCus> = memo(
     isTrue,
     type,
     icon,
+    formError,
     ...rest
   }) => {
     const { color, ...inputProps } = rest;
@@ -80,6 +82,7 @@ export const Input: React.FC<InputPropsCus> = memo(
               </InputAdornment>
             }
           />
+          <p className="form-error text-red-500">{formError}</p>
         </div>
       </>
     );
