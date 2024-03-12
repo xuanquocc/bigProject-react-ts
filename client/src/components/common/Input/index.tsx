@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { InputAdornment } from "@mui/material";
+import { InputAdornment, InputProps } from "@mui/material";
 import mailLogo from "../../../assets/icon/mail.png";
 import errorIcon from "../../../assets/icon/error.png";
 import unionIcon from "../../../assets/icon/Union.png";
@@ -8,10 +8,9 @@ import InputStyle from "./style.ts";
 import KeyIcon from "@mui/icons-material/Key";
 
 interface InputPropsCus
-  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "size"> {
+  extends InputProps {
   label?: string;
   className?: string;
-  size?: "large" | "small" | "medium" | string;
   icon?: string;
   placeholder?: string;
   type: string;
