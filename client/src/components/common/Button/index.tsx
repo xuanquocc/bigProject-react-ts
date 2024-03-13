@@ -1,34 +1,36 @@
 import React, { memo } from "react";
+import {ButtonProps} from "@mui/material"
+import ButtonMui from './style'
 
-import './style.css'
-
-interface ButtonPropsCus extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonPropsCus extends ButtonProps {
   text?: string;
-  variant?:
-    | "large"
-    | "medium"
-    | "small"
-    | "large-long"
-    | "medium-long"
-    | "small-long";
-  kind?: "primary" | "secondary" | "light" | "error";
+  kind?: "primary" | "error"  ;
   className?: string;
+  onClick?: () => void;
 }
 
+
+
 export const Button: React.FC<ButtonPropsCus> = memo(
-  ({ text, className, variant, kind, ...rest }) => {
+  ({ text, className, variant, disabled = false, onClick, kind }) => {
     return (
-      <button className={`bttn ${variant} ${kind} ${className}`} {...rest}>
+      <ButtonMui
+        className={`bttn ${className} ${variant} ${kind} ${disabled ? "disabled" : ""} rounded-xl`}
+        color={kind}
+        disabled={disabled}
+        onClick={onClick}
+      >
         {text}
-      </button>
+      </ButtonMui>
     );
   },
 );
 
+export default Button
+
 Button.defaultProps = {
-  variant: "medium",
+  variant: "outlined",
   kind: "primary",
   className: "",
   children: "",
-  text: "",
-};
+}

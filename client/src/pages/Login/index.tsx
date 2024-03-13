@@ -5,7 +5,7 @@ import { Button } from "../../components/common/Button";
 const Login = () => {
   return (
     <div>
-      <Button variant="large" kind="primary" text="Continue"/>
+      <Button  kind="primary" text="Continue"/>
     </div>
   )
 };
