@@ -11,6 +11,7 @@ import { FormErrors, User } from "../../types/users.type";
 import { registerUser } from "../../api/registerApi";
 import { useMutation } from "@tanstack/react-query";
 import { validateAuthen } from "../../utils/AuthenValidate";
+import "./register.css"
 
 const initialUser: User = {
   username: "",
