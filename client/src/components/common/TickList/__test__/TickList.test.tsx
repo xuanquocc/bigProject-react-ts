@@ -17,10 +17,13 @@ test('render Tick component without icon', () => {
 
 test('renders TickList with function passed into button', () => {
   const mockFunction = jest.fn();
+  // Render the TickList component with the mocked function
   const { getByTestId } = render(<Tick icon={EditIcon} onClick={mockFunction} />); 
 
-  const button = getByTestId('icon');
+  // Find the button element and simulate a click event
+  const button = getByTestId('icon');// Changed name to 'icon'
   fireEvent.click(button);
 
+  // Assert that the mock function is called when the button is clicked
   expect(mockFunction).toHaveBeenCalled();
 });

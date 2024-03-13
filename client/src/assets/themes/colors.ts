@@ -25,3 +25,10 @@ const theme = createTheme({
 });
 
 export default theme
+// export const themes = {
+//     primary: "#2A85FF",
+//     primary_color: "#FCFCFCBF",
+//     error: "#FFBC9940",
+//     backgroundGrey: "#F4F4F4",
+//     colorGrey: "#6F767E"
+// };

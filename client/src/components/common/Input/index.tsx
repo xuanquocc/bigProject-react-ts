@@ -38,7 +38,7 @@ export const Input: React.FC<InputPropsCus> = memo(
       <>
         {label && <label htmlFor="input">{label}</label>}
 
-        <div className="input-group flex flex-row rounded-xl flex-1">
+        <div className="input-group flex flex-col rounded-xl flex-1">
           <InputStyle
             error={isError}
             className={`input ${className} ${size} ${isError ? "isError " : ""}`}
@@ -82,7 +82,7 @@ export const Input: React.FC<InputPropsCus> = memo(
               </InputAdornment>
             }
           />
-          <p className="form-error text-red-500">{formError}</p>
+          <p className="form-error text-red-500 text-start">{formError}</p>
         </div>
       </>
     );
@@ -93,6 +93,9 @@ Input.defaultProps = {
   label: "",
   className: "",
   size: "small",
+  isTrue: false,
+  isError: false,
 };
+
 
 export default Input;

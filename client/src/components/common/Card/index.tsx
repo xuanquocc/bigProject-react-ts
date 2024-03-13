@@ -51,7 +51,7 @@ export const Card: React.FC<CardProps> = memo(
         </DivCustom>
         <CardContentCustome className="content-product flex justify-between">
           <div className="description flex flex-col">
-            <TyographyCustom className="product-name text-left" >
+            <TyographyCustom className="product-name text-left">
               {title}
             </TyographyCustom>
             <CardActionsCustome disableSpacing>

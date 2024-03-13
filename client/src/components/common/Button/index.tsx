@@ -29,7 +29,7 @@ export const Button: React.FC<ButtonPropsCus> = memo(
 export default Button
 
 Button.defaultProps = {
-  variant: "outlined",
+  variant: "contained",
   kind: "primary",
   className: "",
   children: "",
