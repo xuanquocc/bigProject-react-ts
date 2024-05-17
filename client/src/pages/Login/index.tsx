@@ -1,38 +1,36 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { ChangeEvent } from "react";
 import { Tag } from "../../components/common/Tag";
 import { Button } from "../../components/common/Button";
 import { Input } from "../../components/common/Input";
 import google from "../../assets/icon/google.png";
 import apple from "../../assets/icon/Apple.png";
-import Sidebar from "../../components/modules/sidebarLogin";
 import { useNavigate } from "react-router-dom";
-import { FormErrors, User } from "../../types/users.type";
-import { registerUser } from "../../api/registerApi";
+import { FormErrors, UserLoginform } from "../../types/users.type";
 import { useMutation } from "@tanstack/react-query";
-import { validateAuthen } from "../../utils/AuthenValidate";
+import { validateFormLogin } from "../../utils/AuthenValidate";
+import { loginUser } from "../../api/fetchUser";
 
-const initialUser: User = {
-  username: "",
-  email: "",
+const initialUser: UserLoginform = {
+  identifier: "",
   password: "",
 };
 const Login = () => {
   const [user, setUser] = useState(initialUser);
   const [formErrors, setFormErrors] = useState<FormErrors>({});
-  const [isDisable, setisDisable] = useState(true);
+
   const navigate = useNavigate();
 
   const handleChange = ({ target }: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = target;
 
-    setUser((prevUser: User) => ({
+    setUser((prevUser: UserLoginform) => ({
       ...prevUser,
       [name]: value,
     }));
 
     const updatedUser = { ...user, [name]: value };
-    const errors = validateAuthen(updatedUser);
+    const errors = validateFormLogin(updatedUser);
     console.log(errors);
     setFormErrors((prevErrors) => ({
       ...prevErrors,
@@ -41,26 +39,24 @@ const Login = () => {
   };
 
   const { mutate } = useMutation({
-    mutationFn: (user: User) => {
-      return registerUser(user);
+    mutationFn: (user: UserLoginform) => {
+      return loginUser(user);
+    },
+    onSuccess: (data) => {
+      window.localStorage.setItem("token", data.jwt || "");
+      window.dispatchEvent(new Event("storage"));
+
+      navigate("/home");
     },
   });
 
-  useEffect(() => {
-    const isFormValid = Object.values(formErrors).every((error) => !error);
-    const isUserNotEmpty = Object.values(user).every(
-      (value) => value.trim() !== ""
-    );
-    console.log(isUserNotEmpty);
-    setisDisable(!isFormValid || !isUserNotEmpty);
-  }, [formErrors, user]);
-
-  const handleSignup = async () => {
+  const handleSignIn = async () => {
     try {
-      mutate(user);
-      navigate("/register");
+      if (user.identifier && user.password) {
+        mutate(user);
+      }
     } catch (error) {
-      console.log(error);
+      console.error("Error:", error);
     }
   };
 
@@ -77,14 +73,11 @@ const Login = () => {
 
   return (
     <div className="wrapp flex flex-row">
-      <div className="sidebar mobile:hidden tablet:block ">
-        <Sidebar title="Plan includes" />
-      </div>
       <div className="content mobile:flex-1">
-        <h2 className="text-start text-6xl font-black">Sign Up</h2>
+        <h2 className="text-start text-6xl font-black">Sign In</h2>
 
         <div className="socialLabel text-start my-10">
-          <b>Sign up with Open account</b>
+          <b>Sign in with Open account</b>
         </div>
 
         <div className="social flex gap-4 flex-row">
@@ -101,23 +94,12 @@ const Login = () => {
 
         <form action="" className="form-signup flex gap-4 flex-col">
           <Input
-            isTrue={!formErrors.username}
-            isError={!!formErrors.username}
-            formError={formErrors.username}
-            name="username"
-            onChange={handleChange}
-            value={user.username}
-            type="text"
-            className="w-100"
-            placeholder="Your Name"
-          />
-          <Input
             isTrue={!formErrors.email}
             isError={!!formErrors.email}
             formError={formErrors.email}
-            name="email"
+            name="identifier"
             onChange={handleChange}
-            value={user.email}
+            value={user.identifier}
             type="email"
             className="w-100"
             placeholder="Your email"
@@ -138,9 +120,9 @@ const Login = () => {
             variant={"contained"}
             kind={"primary"}
             text={"Continue"}
-            disabled={isDisable}
+            disabled={false}
             type="submit"
-            onClick={handleSignup}
+            onClick={handleSignIn}
           />
         </form>
 

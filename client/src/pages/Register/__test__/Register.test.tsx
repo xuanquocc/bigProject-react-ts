@@ -1,6 +1,6 @@
 import { render, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom'
-import Login from '../index';
+import Register from '../index';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 // Mock useNavigate function
@@ -14,7 +14,7 @@ describe('Login Component', () => {
     const queryClient = new QueryClient();
     render(
       <QueryClientProvider client={queryClient}>
-        <Login />
+        <Register />
       </QueryClientProvider>
     );
   });
@@ -23,7 +23,7 @@ describe('Login Component', () => {
     const queryClient = new QueryClient();
     const { getByPlaceholderText, getByText } = render(
       <QueryClientProvider client={queryClient}>
-        <Login />
+        <Register />
       </QueryClientProvider>
     );
 
@@ -49,7 +49,7 @@ describe('Login Component', () => {
     const queryClient = new QueryClient();
     const { getByPlaceholderText, getByText } = render(
       <QueryClientProvider client={queryClient}>
-        <Login />
+        <Register />
       </QueryClientProvider>
     );
 
