@@ -59,7 +59,7 @@ const Register = () => {
   const handleSignup = async () => {
     try {
       mutate(user);
-      navigate("/register");
+      navigate("/");
     } catch (error) {
       console.log(error);
     }

@@ -17,7 +17,8 @@ export const loginUser = async (user: UserLoginform) => {
     password: user.password,
   }
     try {
-      const response = await http.post<UserLoginform>("/api/auth/local", userLogin);
+      
+      const response = await http.post<UserLoginform>("/api/auth/local/", userLogin);
       console.log("hi",response.data)
       return response.data;
     } catch (error) {

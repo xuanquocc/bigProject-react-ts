@@ -31,7 +31,6 @@ const Login = () => {
 
     const updatedUser = { ...user, [name]: value };
     const errors = validateFormLogin(updatedUser);
-    console.log(errors);
     setFormErrors((prevErrors) => ({
       ...prevErrors,
       [name]: errors[name],
@@ -44,9 +43,12 @@ const Login = () => {
     },
     onSuccess: (data) => {
       window.localStorage.setItem("token", data.jwt || "");
+      console.log("jwt", data);
       window.dispatchEvent(new Event("storage"));
 
       navigate("/home");
+
+      // localStorage.clear();
     },
   });
 

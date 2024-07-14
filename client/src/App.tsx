@@ -19,7 +19,7 @@ function App() {
     window.addEventListener("storage", () => {
       setIsLoggedIn(isUserLoggedIn());
     })
-  }, [isUserLoggedIn,window]);
+  }, [isUserLoggedIn]);
 
   return (
     <ThemeProvider theme={theme}>
